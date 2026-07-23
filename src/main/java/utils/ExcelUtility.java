@@ -2,6 +2,7 @@
 
 package utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,10 +23,12 @@ public class ExcelUtility
     private FileOutputStream fos;
 
     // Excel File Path
-    private String filePath = "C:\\Users\\htewari\\OneDrive - Kuwait Food Company\\Desktop\\PracticeFormData.xlsx";
+   // private String filePath = "C:\\Users\\htewari\\OneDrive - Kuwait Food Company\\Desktop\\PracticeFormData.xlsx";
+    private String filePath =System.getProperty("user.dir")	+ "/src/test/resources/PracticeFormData.xlsx";
+
 
     // Constructor
-    public ExcelUtility()
+ /*   public ExcelUtility()
     {
 
         try
@@ -37,7 +40,31 @@ public class ExcelUtility
         {
             e.printStackTrace();
         }
+    }*/
+    
+    public ExcelUtility() {
+
+        try {
+
+            File file = new File(filePath);
+
+            System.out.println("Excel Path: " + file.getAbsolutePath());
+            System.out.println("File Exists: " + file.exists());
+
+            fis = new FileInputStream(file);
+            workbook = new XSSFWorkbook(fis);
+
+        }
+        catch (Exception e) 
+        {
+
+            System.out.println("Unable to load Excel file");
+            e.printStackTrace();
+        }
     }
+    
+      
+    
 
     // Get Total Rows
     public int getRowCount(String sheetName)
