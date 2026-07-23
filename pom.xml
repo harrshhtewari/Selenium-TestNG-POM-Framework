@@ -10,7 +10,7 @@
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
     <artifactId>selenium-java</artifactId>
-    <version>4.37.0</version>
+    <version>4.18.1</version>
     <scope>compile</scope>
 </dependency>
 
@@ -24,20 +24,26 @@
 
 
 <!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
-<dependency>
+
+    <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
     <version>7.7.1</version>
-    <scope>test</scope>
-</dependency> 
-
-
+</dependency>
 
 <dependency>
-<groupId>com.aventstack</groupId>
-<artifactId>extentreports</artifactId>
-<version>5.0.9</version>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>5.1.2</version>
 </dependency>
+
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.38</version>
+    <scope>provided</scope>
+</dependency>
+
 
 
 
@@ -60,6 +66,7 @@
  </dependencies>
   <build>
     <plugins>
+
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -69,6 +76,13 @@
                 <target>17</target>
             </configuration>
         </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.2.5</version>
+        </plugin>
+
     </plugins>
 </build>
   
